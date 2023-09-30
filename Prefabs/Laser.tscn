@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf5vw8xtprowo"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.gd" id="1_7meb3"]
+[ext_resource type="Texture2D" uid="uid://duqdk48e5qwt6" path="res://Sprites/Laser1A.png" id="2_5ekti"]
+[ext_resource type="Texture2D" uid="uid://t3ardbqjiw0r" path="res://Sprites/Laser1B.png" id="3_tob3j"]
+[ext_resource type="Texture2D" uid="uid://b3glr0ekiunqv" path="res://Sprites/Laser1C.png" id="4_v5m6x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk5wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5ekti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tob3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v5m6x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh1rv"]
+size = Vector2(16, 4)
+
+[node name="Laser" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_7meb3")
+speed = 600.0
+damage = 2
+perforation = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_pk5wf")
+autoplay = "default"
+frame = 1
+frame_progress = 0.507187
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kh1rv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-8, -2, 16, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

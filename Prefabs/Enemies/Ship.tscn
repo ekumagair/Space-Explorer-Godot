@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://g30xpf7iegi1"]
+
+[ext_resource type="Script" path="res://Scripts/FlyingNPC.gd" id="1_x8spf"]
+[ext_resource type="Texture2D" uid="uid://cxw7lc3bk0p3h" path="res://Sprites/Ship1A.png" id="2_py4n1"]
+[ext_resource type="Texture2D" uid="uid://diysatjt1f67j" path="res://Sprites/Ship1B.png" id="3_brrat"]
+[ext_resource type="PackedScene" uid="uid://ctgdehyhn78h6" path="res://Prefabs/Components/HealthComponent.tscn" id="4_fhuql"]
+[ext_resource type="PackedScene" uid="uid://dfb8mm637x7bp" path="res://Prefabs/Components/ShooterComponent.tscn" id="5_6on7i"]
+[ext_resource type="PackedScene" uid="uid://be4qojnhf8csa" path="res://Prefabs/ShipShot.tscn" id="6_hihrc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_loenh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_py4n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_brrat")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni3ls"]
+size = Vector2(32, 16)
+
+[node name="Ship" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 36
+script = ExtResource("1_x8spf")
+speed = 120.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_loenh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ni3ls")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_fhuql")]
+health = 2
+pointsOnDeath = 1000
+
+[node name="ShooterComponent" parent="." instance=ExtResource("5_6on7i")]
+shotPath = ExtResource("6_hihrc")
+direction = Vector2(0, 1)
+shotDelay = 0.5
+shotDelayRandomize = false
+spawnOffset = Vector2(0, 2)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-24, -10, 48, 20)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch3o0t2242slu"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.gd" id="1_sr0by"]
+[ext_resource type="Texture2D" uid="uid://cb2r3xnyyjqev" path="res://Sprites/MonsterShot.png" id="2_c1i5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n63e"]
+atlas = ExtResource("2_c1i5n")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpnkr"]
+atlas = ExtResource("2_c1i5n")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk5wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n63e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpnkr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cu4a"]
+radius = 4.0
+
+[node name="MonsterShot" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_sr0by")
+speed = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pk5wf")
+autoplay = "default"
+frame = 1
+frame_progress = 0.302874
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4cu4a")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-4, -4, 8, 8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

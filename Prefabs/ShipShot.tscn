@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://be4qojnhf8csa"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.gd" id="1_76o3v"]
+[ext_resource type="Texture2D" uid="uid://ba20dk5i5nant" path="res://Sprites/ShipShot1A.png" id="2_0upc3"]
+[ext_resource type="Texture2D" uid="uid://boayiahfu08kp" path="res://Sprites/ShipShot1B.png" id="3_0e4q4"]
+[ext_resource type="Texture2D" uid="uid://bembfly10xdye" path="res://Sprites/ShipShot1C.png" id="4_ku15r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk5wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0upc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0e4q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ku15r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cu4a"]
+radius = 4.0
+
+[node name="ShipShot" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_76o3v")
+direction = Vector2(0, 1)
+speed = 250.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pk5wf")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0735483
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4cu4a")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-4, -4, 8, 8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

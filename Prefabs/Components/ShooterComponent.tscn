@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfb8mm637x7bp"]
+
+[ext_resource type="Script" path="res://Scripts/Shooter.gd" id="1_12dbj"]
+[ext_resource type="PackedScene" uid="uid://ch3o0t2242slu" path="res://Prefabs/MonsterShot.tscn" id="2_3lc3d"]
+
+[node name="ShooterComponent" type="Node2D"]
+script = ExtResource("1_12dbj")
+shotPath = ExtResource("2_3lc3d")
+direction = Vector2(-1, 0)
+shotDelay = 2.25
+spawnOffset = Vector2(0, -2)

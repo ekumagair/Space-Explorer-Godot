@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://h2q5gdqvhtjm"]
+
+[ext_resource type="Script" path="res://Scripts/WalkingNPC.gd" id="1_qopyo"]
+[ext_resource type="Texture2D" uid="uid://cbu1w7jaw7i8d" path="res://Sprites/Monster1A.png" id="2_jxdd7"]
+[ext_resource type="Texture2D" uid="uid://8g7oorh147jf" path="res://Sprites/Monster1B.png" id="3_ofhbc"]
+[ext_resource type="PackedScene" uid="uid://ctgdehyhn78h6" path="res://Prefabs/Components/HealthComponent.tscn" id="4_1jqn2"]
+[ext_resource type="Texture2D" uid="uid://du8ard5u3b24" path="res://Sprites/Monster1C.png" id="4_i72cc"]
+[ext_resource type="PackedScene" uid="uid://dfb8mm637x7bp" path="res://Prefabs/Components/ShooterComponent.tscn" id="6_pdemt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1ong"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jxdd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ofhbc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i72cc")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gnt6"]
+size = Vector2(20, 24)
+
+[node name="Monster" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 44
+script = ExtResource("1_qopyo")
+speed = 20.0
+mirrorSprite = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_b1ong")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_5gnt6")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_1jqn2")]
+pointsOnDeath = 750
+
+[node name="RayCastRoot" type="Node2D" parent="."]
+
+[node name="RayCastFloor" type="RayCast2D" parent="RayCastRoot"]
+position = Vector2(-16, -16)
+target_position = Vector2(0, 32)
+collision_mask = 8
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -8)
+rect = Rect2(-16, -16, 32, 32)
+
+[node name="ShooterComponent" parent="." instance=ExtResource("6_pdemt")]
+direction = Vector2(0, 0)
+shotDelay = 1.75

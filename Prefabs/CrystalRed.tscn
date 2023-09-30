@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhkmbd6on1fsa"]
+
+[ext_resource type="PackedScene" uid="uid://chq10t7eujk2b" path="res://Prefabs/CrystalYellow.tscn" id="1_f8rox"]
+
+[node name="CrystalRed" instance=ExtResource("1_f8rox")]
+animation = "red"
+giveScore = 900
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"red"

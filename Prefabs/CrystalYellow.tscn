@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://chq10t7eujk2b"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_w4jj7"]
+[ext_resource type="Texture2D" uid="uid://qnxuees6wcs5" path="res://Sprites/Crystal.png" id="2_qcy67"]
+[ext_resource type="AudioStream" uid="uid://862raviptxjt" path="res://Audio/ItemCollect.wav" id="3_8elmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtqx3"]
+atlas = ExtResource("2_qcy67")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32dvg"]
+atlas = ExtResource("2_qcy67")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22e3j"]
+atlas = ExtResource("2_qcy67")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkfth"]
+atlas = ExtResource("2_qcy67")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs14c"]
+atlas = ExtResource("2_qcy67")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe2lc"]
+atlas = ExtResource("2_qcy67")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0odd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtqx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32dvg")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22e3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkfth")
+}],
+"loop": true,
+"name": &"red",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs14c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe2lc")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwk0b"]
+size = Vector2(16, 16)
+
+[node name="CrystalYellow" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_w4jj7")
+giveScore = 100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u0odd")
+animation = &"yellow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qwk0b")
+
+[node name="SoundCollect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8elmu")
+volume_db = -4.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7u643asymeti"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_5jpo5"]
+[ext_resource type="Texture2D" uid="uid://bp4215g7edabc" path="res://Sprites/HP.png" id="2_irq2y"]
+[ext_resource type="Script" path="res://Scripts/HealthIcon.gd" id="3_xpkbf"]
+
+[node name="Canvas" type="CanvasLayer"]
+script = ExtResource("1_5jpo5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 64.0
+offset_right = 320.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreNumber" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 320.0
+offset_right = 832.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "1000000"
+vertical_alignment = 1
+
+[node name="HpContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 96.0
+offset_right = 368.0
+offset_bottom = 128.0
+theme_override_constants/separation = 32
+
+[node name="TextureHp1" type="TextureRect" parent="Control/HpContainer"]
+layout_mode = 2
+texture = ExtResource("2_irq2y")
+expand_mode = 2
+script = ExtResource("3_xpkbf")
+minimum = 1
+
+[node name="TextureHp2" type="TextureRect" parent="Control/HpContainer"]
+layout_mode = 2
+texture = ExtResource("2_irq2y")
+expand_mode = 2
+script = ExtResource("3_xpkbf")
+minimum = 2
+
+[node name="TextureHp3" type="TextureRect" parent="Control/HpContainer"]
+layout_mode = 2
+texture = ExtResource("2_irq2y")
+expand_mode = 2
+script = ExtResource("3_xpkbf")
+minimum = 3
+
+[connection signal="ready" from="." to="." method="_on_ready"]

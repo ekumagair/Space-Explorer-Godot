@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cavu2m22oqub7"]
+
+[ext_resource type="PackedScene" uid="uid://dfb8mm637x7bp" path="res://Prefabs/Components/ShooterComponent.tscn" id="1_uey3m"]
+[ext_resource type="PackedScene" uid="uid://d28ge7vlrcflk" path="res://Prefabs/CannonShot.tscn" id="2_32d54"]
+
+[node name="Cannon" type="Node2D"]
+position = Vector2(2456, 40)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-8, -8, 16, 16)
+
+[node name="ShooterComponent" parent="." instance=ExtResource("1_uey3m")]
+shotPath = ExtResource("2_32d54")
+spawnOffset = Vector2(0, 0)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://0gtbreiorwsi"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.gd" id="1_mtc4o"]
+[ext_resource type="Texture2D" uid="uid://clmb53nulosij" path="res://Sprites/Explosion1A.png" id="2_txj0a"]
+[ext_resource type="Texture2D" uid="uid://cr0wrv7jriwbx" path="res://Sprites/Explosion1B.png" id="3_2a7wa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk5wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_txj0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2a7wa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cu4a"]
+radius = 4.0
+
+[node name="ExplosionEffect" type="Area2D"]
+z_index = 1
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_mtc4o")
+speed = 50.0
+damage = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pk5wf")
+autoplay = "default"
+frame_progress = 0.302874
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4cu4a")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-16, -16, 32, 32)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

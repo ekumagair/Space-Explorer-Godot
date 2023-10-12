@@ -1,9 +1,29 @@
-[gd_scene format=3 uid="uid://c6x3p4d4o64p6"]
+[gd_scene load_steps=2 format=3 uid="uid://c6x3p4d4o64p6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s4ug"]
 
 [node name="Camera2D" type="Camera2D"]
-position = Vector2(56, 144)
+position = Vector2(168, 96)
 zoom = Vector2(5.625, 5.625)
 limit_left = 0
 limit_top = 0
 limit_bottom = 0
 drag_left_margin = 0.66
+
+[node name="StaticBody2DLeft" type="StaticBody2D" parent="."]
+position = Vector2(-176, 0)
+collision_layer = 128
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2DLeft"]
+scale = Vector2(1, 16)
+shape = SubResource("RectangleShape2D_8s4ug")
+
+[node name="StaticBody2DRight" type="StaticBody2D" parent="."]
+position = Vector2(176, 0)
+collision_layer = 128
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2DRight"]
+scale = Vector2(1, 16)
+shape = SubResource("RectangleShape2D_8s4ug")

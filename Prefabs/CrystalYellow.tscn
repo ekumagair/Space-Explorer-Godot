@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://chq10t7eujk2b"]
+[gd_scene load_steps=13 format=3 uid="uid://chq10t7eujk2b"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_w4jj7"]
 [ext_resource type="Texture2D" uid="uid://qnxuees6wcs5" path="res://Sprites/Crystal.png" id="2_qcy67"]
 [ext_resource type="AudioStream" uid="uid://862raviptxjt" path="res://Audio/ItemCollect.wav" id="3_8elmu"]
+[ext_resource type="Script" path="res://Scripts/AudioObject.gd" id="4_ujg8m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtqx3"]
 atlas = ExtResource("2_qcy67")
@@ -82,5 +83,7 @@ shape = SubResource("RectangleShape2D_qwk0b")
 [node name="SoundCollect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8elmu")
 volume_db = -4.0
+script = ExtResource("4_ujg8m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="SoundCollect" to="SoundCollect" method="_on_finished"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh12rm5m0tjph"]
+[gd_scene load_steps=8 format=3 uid="uid://bh12rm5m0tjph"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_4ej4l"]
 [ext_resource type="Texture2D" uid="uid://btn0v41e781f0" path="res://Sprites/Health1A.png" id="2_3yao1"]
 [ext_resource type="Texture2D" uid="uid://dyt3e06r0l413" path="res://Sprites/Health1B.png" id="3_junoy"]
 [ext_resource type="AudioStream" uid="uid://dnkmb3yoi5eq3" path="res://Audio/HealthCollect.wav" id="4_fpme1"]
+[ext_resource type="Script" path="res://Scripts/AudioObject.gd" id="5_kpjdo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u0odd"]
 animations = [{
@@ -39,5 +40,7 @@ shape = SubResource("RectangleShape2D_qwk0b")
 [node name="SoundCollect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_fpme1")
 volume_db = -4.0
+script = ExtResource("5_kpjdo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="SoundCollect" to="SoundCollect" method="_on_finished"]

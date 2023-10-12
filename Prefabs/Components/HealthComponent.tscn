@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctgdehyhn78h6"]
+[gd_scene load_steps=3 format=3 uid="uid://ctgdehyhn78h6"]
 
 [ext_resource type="Script" path="res://Scripts/HealthComponent.gd" id="1_cofu4"]
+[ext_resource type="Script" path="res://Scripts/AudioObject.gd" id="2_ndpgn"]
 
 [node name="HealthComponent" type="Node2D"]
 script = ExtResource("1_cofu4")
@@ -10,3 +11,6 @@ volume_db = -4.0
 
 [node name="SoundDeath" type="AudioStreamPlayer" parent="."]
 volume_db = -4.0
+script = ExtResource("2_ndpgn")
+
+[connection signal="finished" from="SoundDeath" to="SoundDeath" method="_on_finished"]

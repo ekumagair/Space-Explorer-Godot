@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://02s10kmad6rg"]
+[gd_scene load_steps=9 format=3 uid="uid://02s10kmad6rg"]
 
 [ext_resource type="Script" path="res://Scripts/WalkingNPC.gd" id="1_idevb"]
 [ext_resource type="PackedScene" uid="uid://ctgdehyhn78h6" path="res://Prefabs/Components/HealthComponent.tscn" id="4_1wfwo"]
 [ext_resource type="Texture2D" uid="uid://64q7x5kbos6a" path="res://Sprites/Slime2A.png" id="4_bvbvc"]
+[ext_resource type="AudioStream" uid="uid://4n2bjktvmc4s" path="res://Audio/EnemyHurt.wav" id="5_36mrw"]
 [ext_resource type="Texture2D" uid="uid://detc2dtp44tv3" path="res://Sprites/Slime2B.png" id="5_53pha"]
+[ext_resource type="AudioStream" uid="uid://c872qp5jhqooc" path="res://Audio/EnemyDefeat.wav" id="6_e7l7b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b1ong"]
 animations = [{
@@ -42,6 +44,12 @@ shape = SubResource("RectangleShape2D_5gnt6")
 health = 2
 pointsOnDeath = 500
 
+[node name="SoundHurt" parent="HealthComponent" index="0"]
+stream = ExtResource("5_36mrw")
+
+[node name="SoundDeath" parent="HealthComponent" index="1"]
+stream = ExtResource("6_e7l7b")
+
 [node name="RayCastRoot" type="Node2D" parent="."]
 
 [node name="RayCastFloor" type="RayCast2D" parent="RayCastRoot"]
@@ -50,3 +58,5 @@ target_position = Vector2(0, 32)
 collision_mask = 8
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[editable path="HealthComponent"]

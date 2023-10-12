@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://fxexljwchmry"]
+[gd_scene load_steps=18 format=3 uid="uid://fxexljwchmry"]
 
 [ext_resource type="Texture2D" uid="uid://jln7tb52olq" path="res://Sprites/PlayerWalkSheet.png" id="1_5ws6w"]
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_u4qt4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctgdehyhn78h6" path="res://Prefabs/Components/HealthComponent.tscn" id="5_brs8r"]
 [ext_resource type="AudioStream" uid="uid://d2vs6sd7o37lv" path="res://Audio/Jump.wav" id="6_4yu0f"]
 [ext_resource type="AudioStream" uid="uid://nwbgiyw63y8g" path="res://Audio/PlayerHurt.wav" id="8_6q0td"]
+[ext_resource type="PackedScene" uid="uid://bhbutxbjgdcm4" path="res://Prefabs/ExplosionEffectRoot.tscn" id="8_jom66"]
 [ext_resource type="AudioStream" uid="uid://437b4rrdlcet" path="res://Audio/PlayerDefeat.wav" id="9_eitc2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qt564"]
@@ -68,7 +69,7 @@ size = Vector2(14, 18)
 size = Vector2(14, 27)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 24
+collision_mask = 152
 script = ExtResource("1_u4qt4")
 soundStreamShot = Array[AudioStream]([ExtResource("2_jyvsm"), ExtResource("3_edrse")])
 
@@ -85,6 +86,9 @@ shape = SubResource("RectangleShape2D_e2ku0")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_brs8r")]
 afterHitBlinkTime = 6
+alwaysPlayDeathSound = true
+isPlayer = true
+createOnDeath = Array[PackedScene]([ExtResource("8_jom66")])
 
 [node name="SoundHurt" parent="HealthComponent" index="0"]
 stream = ExtResource("8_6q0td")

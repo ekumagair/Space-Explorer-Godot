@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvqyf5t6ugra8"]
+
+[ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_2tkw0"]
+[ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_xgw12"]
+[ext_resource type="PackedScene" uid="uid://c6x3p4d4o64p6" path="res://Prefabs/Camera2D.tscn" id="3_n7eel"]
+[ext_resource type="PackedScene" uid="uid://mcuxuupqusg6" path="res://Prefabs/CameraTarget.tscn" id="3_uvs7a"]
+[ext_resource type="PackedScene" uid="uid://c7u643asymeti" path="res://Prefabs/Canvas.tscn" id="4_wlnhk"]
+[ext_resource type="PackedScene" uid="uid://33fio3syypdc" path="res://Prefabs/Background.tscn" id="5_k3o5c"]
+
+[node name="Level0" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_2tkw0")
+format = 2
+
+[node name="Player" parent="." instance=ExtResource("2_xgw12")]
+position = Vector2(56, 144)
+
+[node name="CameraTarget" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("3_uvs7a")]
+remote_path = NodePath("../Camera2D")
+follow = NodePath("../Player")
+
+[node name="Camera2D" parent="." instance=ExtResource("3_n7eel")]
+
+[node name="Canvas" parent="." instance=ExtResource("4_wlnhk")]
+visible = false
+
+[node name="Background" parent="." instance=ExtResource("5_k3o5c")]
+
+[node name="Group - Items" type="Node2D" parent="."]
+
+[node name="Group - Enemies" type="Node2D" parent="."]

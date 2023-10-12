@@ -19,7 +19,7 @@ func _process(delta):
 	
 	# Call turn around.
 	detect_turn_around()
-		
+	
 	# Mirror sprite depending on direction.
 	if mirrorSprite == true:
 		$AnimatedSprite2D.scale.x = baseScale.x * direction * -1

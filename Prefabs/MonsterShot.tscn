@@ -43,6 +43,6 @@ frame_progress = 0.302874
 shape = SubResource("CircleShape2D_4cu4a")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-4, -4, 8, 8)
+rect = Rect2(-16, -16, 32, 32)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

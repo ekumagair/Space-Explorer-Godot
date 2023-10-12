@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://g30xpf7iegi1"]
+[gd_scene load_steps=11 format=3 uid="uid://g30xpf7iegi1"]
 
 [ext_resource type="Script" path="res://Scripts/FlyingNPC.gd" id="1_x8spf"]
 [ext_resource type="Texture2D" uid="uid://cxw7lc3bk0p3h" path="res://Sprites/Ship1A.png" id="2_py4n1"]
 [ext_resource type="Texture2D" uid="uid://diysatjt1f67j" path="res://Sprites/Ship1B.png" id="3_brrat"]
 [ext_resource type="PackedScene" uid="uid://ctgdehyhn78h6" path="res://Prefabs/Components/HealthComponent.tscn" id="4_fhuql"]
+[ext_resource type="AudioStream" uid="uid://4n2bjktvmc4s" path="res://Audio/EnemyHurt.wav" id="5_4ofyb"]
 [ext_resource type="PackedScene" uid="uid://dfb8mm637x7bp" path="res://Prefabs/Components/ShooterComponent.tscn" id="5_6on7i"]
 [ext_resource type="PackedScene" uid="uid://be4qojnhf8csa" path="res://Prefabs/ShipShot.tscn" id="6_hihrc"]
+[ext_resource type="AudioStream" uid="uid://c872qp5jhqooc" path="res://Audio/EnemyDefeat.wav" id="6_u44ad"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_loenh"]
 animations = [{
@@ -41,6 +43,12 @@ shape = SubResource("RectangleShape2D_ni3ls")
 health = 2
 pointsOnDeath = 1000
 
+[node name="SoundHurt" parent="HealthComponent" index="0"]
+stream = ExtResource("5_4ofyb")
+
+[node name="SoundDeath" parent="HealthComponent" index="1"]
+stream = ExtResource("6_u44ad")
+
 [node name="ShooterComponent" parent="." instance=ExtResource("5_6on7i")]
 shotPath = ExtResource("6_hihrc")
 direction = Vector2(0, 1)
@@ -50,3 +58,5 @@ spawnOffset = Vector2(0, 2)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-24, -10, 48, 20)
+
+[editable path="HealthComponent"]

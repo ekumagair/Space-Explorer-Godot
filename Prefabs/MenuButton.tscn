@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://ciqokxs6mt5ig"]
+
+[ext_resource type="FontFile" uid="uid://d1kywbr0fhlr4" path="res://Fonts/Pixel_NES.otf" id="1_4iwnf"]
+[ext_resource type="AudioStream" uid="uid://cf86cda5aeplb" path="res://Audio/ButtonPress.wav" id="2_o18hg"]
+[ext_resource type="Script" path="res://Scripts/MenuButtonScript.gd" id="2_qiu4w"]
+[ext_resource type="AudioStream" uid="uid://bhbf68g5u2ce" path="res://Audio/ButtonSelect.wav" id="3_nvk50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysb8q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_235kr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gyi7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwpm2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t1jq"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(0, 60)
+offset_right = 142.0
+offset_bottom = 60.0
+pivot_offset = Vector2(0, 30)
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_4iwnf")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ysb8q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_235kr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2gyi7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iwpm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7t1jq")
+text = "PLAY"
+alignment = 0
+script = ExtResource("2_qiu4w")
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nvk50")
+
+[node name="SoundPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o18hg")
+volume_db = -4.0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

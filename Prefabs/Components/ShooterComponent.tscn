@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfb8mm637x7bp"]
+[gd_scene load_steps=4 format=3 uid="uid://dfb8mm637x7bp"]
 
 [ext_resource type="Script" path="res://Scripts/Shooter.gd" id="1_12dbj"]
 [ext_resource type="PackedScene" uid="uid://ch3o0t2242slu" path="res://Prefabs/MonsterShot.tscn" id="2_3lc3d"]
+[ext_resource type="AudioStream" uid="uid://c7q7t55ab8auh" path="res://Audio/EnemyFire.wav" id="3_g1idi"]
 
 [node name="ShooterComponent" type="Node2D"]
 script = ExtResource("1_12dbj")
@@ -9,3 +10,7 @@ shotPath = ExtResource("2_3lc3d")
 direction = Vector2(-1, 0)
 shotDelay = 2.25
 spawnOffset = Vector2(0, -2)
+
+[node name="SoundFire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g1idi")
+volume_db = -3.0

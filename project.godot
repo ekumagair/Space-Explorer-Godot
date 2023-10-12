@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Space Explorer"
-run/main_scene="res://Scenes/TestScene.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -59,6 +59,7 @@ Fire={
 2d_physics/layer_5="Item"
 2d_physics/layer_6="Player Area"
 2d_physics/layer_7="Enemy Projectile"
+2d_physics/layer_8="Player Barrier"
 
 [physics]
 

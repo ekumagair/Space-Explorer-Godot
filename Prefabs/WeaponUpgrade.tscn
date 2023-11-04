@@ -31,7 +31,7 @@ size = Vector2(16, 16)
 collision_layer = 16
 script = ExtResource("1_byeu2")
 animation = "battery"
-giveScore = 1000
+giveScore = 3000
 giveWeapon = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -45,6 +45,7 @@ shape = SubResource("RectangleShape2D_qwk0b")
 
 [node name="SoundCollect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_dls4s")
+volume_db = -2.0
 script = ExtResource("6_0k2if")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

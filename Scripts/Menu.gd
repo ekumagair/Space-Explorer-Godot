@@ -33,6 +33,7 @@ func cursor_animation(action : MENU_BUTTON_ACTION, flashCursor : bool):
 			await get_tree().create_timer(0.1).timeout
 		
 	if action == MENU_BUTTON_ACTION.START_GAME:
-		get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
+		#get_tree().change_scene_to_file("res://Scenes/TestScene.tscn")
+		global.go_to_level(1)
 	elif action == MENU_BUTTON_ACTION.QUIT:
 		get_tree().quit()

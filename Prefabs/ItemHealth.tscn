@@ -27,8 +27,8 @@ size = Vector2(16, 16)
 collision_layer = 16
 script = ExtResource("1_4ej4l")
 animation = "hp"
-giveScore = 1000
-giveHealth = 3
+giveScore = 2000
+giveHealth = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u0odd")
@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_qwk0b")
 
 [node name="SoundCollect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_fpme1")
-volume_db = -4.0
+volume_db = -10.0
 script = ExtResource("5_kpjdo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

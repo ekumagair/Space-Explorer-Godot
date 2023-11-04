@@ -82,7 +82,7 @@ shape = SubResource("RectangleShape2D_qwk0b")
 
 [node name="SoundCollect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8elmu")
-volume_db = -4.0
+volume_db = -8.0
 script = ExtResource("4_ujg8m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

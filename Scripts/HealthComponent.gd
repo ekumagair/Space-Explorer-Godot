@@ -53,8 +53,13 @@ func after_hit_blink():
 	invulnerable = true
 	
 	for i in afterHitBlinkTime:
+		if health <= 0 or is_instance_valid(self) == false:
+			return
 		parent.hide()
 		await get_tree().create_timer(0.1).timeout
+		
+		if health <= 0 or is_instance_valid(self) == false:
+			return
 		parent.show()
 		await get_tree().create_timer(0.1).timeout
 	
@@ -90,6 +95,10 @@ func die():
 func player_death():
 	await get_tree().create_timer(3).timeout
 	
+	global.upgrade = 0
+	global.lives -= 1
+	
 	if global.lives > 0:
-		global.lives -= 1
 		global.restart_scene()
+	else:
+		global.go_to_game_over()

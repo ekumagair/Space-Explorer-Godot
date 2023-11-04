@@ -13,4 +13,4 @@ spawnOffset = Vector2(0, -2)
 
 [node name="SoundFire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_g1idi")
-volume_db = -3.0
+volume_db = -8.0

@@ -4,7 +4,7 @@
 
 [node name="CrystalOrange" instance=ExtResource("1_l3tp5")]
 animation = "orange"
-giveScore = 300
+giveScore = 400
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"orange"

@@ -28,6 +28,17 @@ size = Vector2(12, 24)
 collision_layer = 2
 collision_mask = 44
 script = ExtResource("1_14326")
+turnAroundOnLedges = null
+hasShootingAnimation = null
+animationWalk = null
+animationFire = null
+fireAnimationDuration = null
+speed = null
+direction = null
+mirrorSprite = null
+waitUntilOnScreen = null
+affectedBySpeedMultiplier = null
+appearOnDifficulty = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b1ong")
@@ -51,7 +62,7 @@ stream = ExtResource("6_jg6gp")
 [node name="RayCastRoot" type="Node2D" parent="."]
 
 [node name="RayCastFloor" type="RayCast2D" parent="RayCastRoot"]
-position = Vector2(-16, -16)
+position = Vector2(-10, -16)
 target_position = Vector2(0, 32)
 collision_mask = 8
 

@@ -32,6 +32,7 @@ radius = 4.0
 collision_layer = 64
 script = ExtResource("1_emm6q")
 speed = 120.0
+isFromEnemy = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pk5wf")

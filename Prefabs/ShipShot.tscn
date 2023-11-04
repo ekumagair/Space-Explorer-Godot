@@ -30,6 +30,7 @@ collision_layer = 64
 script = ExtResource("1_76o3v")
 direction = Vector2(0, 1)
 speed = 250.0
+isFromEnemy = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pk5wf")

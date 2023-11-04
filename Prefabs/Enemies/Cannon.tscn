@@ -10,5 +10,6 @@ position = Vector2(2456, 40)
 rect = Rect2(-8, -8, 16, 16)
 
 [node name="ShooterComponent" parent="." instance=ExtResource("1_uey3m")]
+affectedBySpeedMultiplier = false
 shotPath = ExtResource("2_32d54")
 spawnOffset = Vector2(0, 0)

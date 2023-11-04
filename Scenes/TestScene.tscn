@@ -71,6 +71,7 @@ position = Vector2(376, 104)
 
 [node name="Monster2" parent="EnemyGroup" instance=ExtResource("11_tnilo")]
 position = Vector2(424, 152)
+hasShootingAnimation = null
 
 [node name="Slime2" parent="EnemyGroup" instance=ExtResource("7_s6woo")]
 position = Vector2(896, 152)
@@ -104,6 +105,7 @@ position = Vector2(2040, 152)
 
 [node name="Monster" parent="EnemyGroup" instance=ExtResource("11_tnilo")]
 position = Vector2(2360, 88)
+hasShootingAnimation = null
 
 [node name="Ship" parent="EnemyGroup" instance=ExtResource("15_s5mmp")]
 position = Vector2(800, 24)

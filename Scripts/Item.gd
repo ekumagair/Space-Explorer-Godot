@@ -16,10 +16,14 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		queue_free()
 		global.score += giveScore
+		
+		if giveHealth > 0 and body.get_node("HealthComponent").health >= 3:
+			global.lives += 1
+			
 		body.get_node("HealthComponent").change_health(giveHealth)
 		
 		if giveWeapon >= 0:
-			body.upgrade = giveWeapon
+			global.upgrade = giveWeapon
 			
 		if soundCollect != null:
 			soundCollect.reparent(get_tree().root, true)

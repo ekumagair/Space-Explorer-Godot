@@ -9,6 +9,7 @@ const fireAnimationDuration = 0.2
 @export var speed : float = 100.0
 @export var jumpVelocity : float = -150
 @export var jumpTimeDefault : float = 0.3
+@export var gravityMultiplier : float = 0.8
 @export var soundStreamShot : Array[AudioStream]
 
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -20,7 +21,6 @@ var jumpTime : float = 0.0
 var horizontalVector : int = 1
 var fireWait : float = 0.0
 var fireAnimationTimer : float = 0.0
-@onready var upgrade : int = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -29,10 +29,11 @@ var direction : Vector2 = Vector2.ZERO
 func _ready():
 	global.playerReference = self
 	global.playerHealth = healthScript
+	global.finishedLevel = false
 	jumpTime = 0.0
 	
 func _process(delta):
-	if Input.is_action_just_pressed("Fire") and fireWait <= 0:
+	if Input.is_action_just_pressed("Fire") and fireWait <= 0 and global.finishedLevel == false:
 		shoot()
 		
 	if fireWait > 0:
@@ -41,18 +42,22 @@ func _process(delta):
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * gravityMultiplier * delta
 		if fireAnimationTimer <= 0:
 			animatedSprite.play("jump")
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and global.finishedLevel == false:
 		jumpStart()
 		
 	jumpContinue(delta)
 
 	# Get the input direction and handle the movement/deceleration.
-	direction.x = Input.get_axis("WalkLeft", "WalkRight")
+	if global.finishedLevel == false:
+		direction.x = Input.get_axis("WalkLeft", "WalkRight")
+	else:
+		direction.x = 0
+		
 	if direction:
 		velocity.x = direction.x * speed
 	else:
@@ -95,9 +100,9 @@ func jumpContinue(delta):
 			
 func shoot():
 	var projectile
-	if upgrade == 0:
+	if global.upgrade == 0:
 		projectile = bulletPath.instantiate()
-	elif upgrade == 1:
+	elif global.upgrade == 1:
 		projectile = laserPath.instantiate()
 	
 	get_tree().root.add_child(projectile)
@@ -110,7 +115,7 @@ func shoot():
 	animatedSprite.play("fire")
 	
 	soundShot.stop()
-	soundShot.stream = soundStreamShot[upgrade]
+	soundShot.stream = soundStreamShot[global.upgrade]
 	soundShot.play()
 
 func _on_area_2d_body_entered(body):
@@ -119,4 +124,7 @@ func _on_area_2d_body_entered(body):
 
 func on_change_health(amount):
 	if amount < 0:
-		upgrade = 0
+		global.upgrade = 0
+
+func on_finish_level():
+	healthScript.invulnerable = true

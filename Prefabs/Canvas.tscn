@@ -18,15 +18,14 @@ grow_vertical = 2
 
 [node name="ScoreLabel" type="Label" parent="Control"]
 layout_mode = 2
-offset_left = 64.0
-offset_right = 320.0
+offset_right = 256.0
 offset_bottom = 128.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_qwg52")
 theme_override_font_sizes/font_size = 48
 text = "SCORE:"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ScoreNumber" type="Label" parent="Control"]
@@ -40,6 +39,74 @@ size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_qwg52")
 theme_override_font_sizes/font_size = 48
 text = "1000000"
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -576.0
+offset_right = -320.0
+offset_bottom = 128.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_qwg52")
+theme_override_font_sizes/font_size = 48
+text = "LEVEL"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LevelNumber" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 128.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_qwg52")
+theme_override_font_sizes/font_size = 48
+text = "1"
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -576.0
+offset_top = 56.0
+offset_right = -320.0
+offset_bottom = 184.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_qwg52")
+theme_override_font_sizes/font_size = 48
+text = "LIVES:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LivesNumber" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = 56.0
+offset_bottom = 184.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_qwg52")
+theme_override_font_sizes/font_size = 48
+text = "1"
 vertical_alignment = 1
 
 [node name="HpContainer" type="HBoxContainer" parent="Control"]

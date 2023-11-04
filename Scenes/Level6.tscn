@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxterhixsvum6"]
+
+[ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_vlgdi"]
+[ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_ox4m3"]
+[ext_resource type="PackedScene" uid="uid://mcuxuupqusg6" path="res://Prefabs/CameraTarget.tscn" id="3_frcun"]
+[ext_resource type="PackedScene" uid="uid://c6x3p4d4o64p6" path="res://Prefabs/Camera2D.tscn" id="4_5xuai"]
+[ext_resource type="PackedScene" uid="uid://c7u643asymeti" path="res://Prefabs/Canvas.tscn" id="5_2paxe"]
+[ext_resource type="PackedScene" uid="uid://33fio3syypdc" path="res://Prefabs/Background.tscn" id="6_bu4rr"]
+[ext_resource type="PackedScene" uid="uid://0iqv0m1pg728" path="res://Prefabs/WeaponUpgrade.tscn" id="7_4y77u"]
+[ext_resource type="AudioStream" uid="uid://dte5fc2pnqf2x" path="res://Audio/Music/MusicBoss.wav" id="7_conq5"]
+[ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="7_om6pj"]
+
+[node name="Level6" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_vlgdi")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 65536, 0, 655361, 65536, 0, 655362, 65536, 0, 655363, 65536, 0, 655364, 65536, 0, 655365, 65536, 0, 655366, 65536, 0, 393219, 65536, 0, 393220, 65536, 0, 655367, 65536, 0, 65535, 131072, 3, 131071, 131072, 3, 196607, 131072, 3, 262143, 131072, 3, 327679, 131072, 3, 393215, 131072, 3, 458751, 131072, 3, 524287, 131072, 3, 589823, 131072, 3, 655359, 131072, 3, 720895, 131072, 3, 786431, 131072, 3)
+
+[node name="Player" parent="." instance=ExtResource("2_ox4m3")]
+position = Vector2(56, 144)
+
+[node name="CameraTarget" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("3_frcun")]
+remote_path = NodePath("../Camera2D")
+follow = NodePath("../Player")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_5xuai")]
+
+[node name="Canvas" parent="." instance=ExtResource("5_2paxe")]
+visible = false
+
+[node name="Background" parent="." instance=ExtResource("6_bu4rr")]
+
+[node name="Music" parent="." instance=ExtResource("7_om6pj")]
+stream = ExtResource("7_conq5")
+
+[node name="Group - Items" type="Node2D" parent="."]
+
+[node name="WeaponUpgrade" parent="Group - Items" instance=ExtResource("7_4y77u")]
+position = Vector2(56, 88)
+
+[node name="Group - Enemies" type="Node2D" parent="."]

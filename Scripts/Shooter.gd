@@ -1,6 +1,7 @@
 extends Node
 
 @export var waitUntilOnScreen : bool = true
+@export var affectedBySpeedMultiplier : bool = true
 @export var shotPath : PackedScene
 @export var direction : Vector2
 @export var shotDelay : float = 2.0
@@ -15,6 +16,7 @@ var startedLoop : bool = false
 var rng = RandomNumberGenerator.new()
 var visibilityNotifier = null
 var healthComponent = null
+var walkComponent = null
 
 func _ready():
 	active = false
@@ -51,6 +53,10 @@ func shoot_loop():
 		
 		# Play firing sound.
 		soundFire.play()
+		
+		# Call shoot method.
+		if get_parent().has_method("on_shoot"):
+			get_parent().on_shoot()
 	
 	# Delay.
 	var delay : float
@@ -58,6 +64,8 @@ func shoot_loop():
 		delay = rng.randf_range(shotDelay * 0.75, shotDelay * 1.25)
 	else:
 		delay = shotDelay
+		
+	delay /= (global.enemySpeedMultiplier if affectedBySpeedMultiplier else 1.0)
 		
 	await get_tree().create_timer(delay).timeout
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yncohm1n10or"]
+[gd_scene load_steps=19 format=3 uid="uid://yncohm1n10or"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_u61og"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_n1ipf"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bh12rm5m0tjph" path="res://Prefabs/ItemHealth.tscn" id="14_dpa0e"]
 [ext_resource type="PackedScene" uid="uid://g30xpf7iegi1" path="res://Prefabs/Enemies/Ship.tscn" id="15_s5mmp"]
 [ext_resource type="PackedScene" uid="uid://bhbutxbjgdcm4" path="res://Prefabs/ExplosionEffectRoot.tscn" id="16_00s37"]
+[ext_resource type="PackedScene" uid="uid://eedoyvdkb1ek" path="res://Prefabs/WorldScoreText.tscn" id="18_6h5a3"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -61,8 +62,21 @@ position = Vector2(488, 152)
 collision_layer = 1
 
 [node name="Canvas" parent="." instance=ExtResource("6_b1jor")]
-visible = false
 follow_viewport_scale = 0.001
+
+[node name="WorldScoreText" parent="Canvas/Control" index="6" instance=ExtResource("18_6h5a3")]
+layout_mode = 1
+offset_left = -856.0
+offset_top = -476.0
+offset_right = -730.0
+offset_bottom = -412.0
+
+[node name="WorldScoreText2" parent="Canvas/Control" index="7" instance=ExtResource("18_6h5a3")]
+layout_mode = 1
+offset_left = -96.0
+offset_top = 4.0
+offset_right = 30.0
+offset_bottom = 68.0
 
 [node name="WeaponUpgrade" parent="." instance=ExtResource("8_bbv1v")]
 position = Vector2(376, 104)
@@ -71,7 +85,7 @@ position = Vector2(376, 104)
 
 [node name="Monster2" parent="EnemyGroup" instance=ExtResource("11_tnilo")]
 position = Vector2(424, 152)
-hasShootingAnimation = null
+hasShootingAnimation = false
 
 [node name="Slime2" parent="EnemyGroup" instance=ExtResource("7_s6woo")]
 position = Vector2(896, 152)
@@ -105,7 +119,7 @@ position = Vector2(2040, 152)
 
 [node name="Monster" parent="EnemyGroup" instance=ExtResource("11_tnilo")]
 position = Vector2(2360, 88)
-hasShootingAnimation = null
+hasShootingAnimation = false
 
 [node name="Ship" parent="EnemyGroup" instance=ExtResource("15_s5mmp")]
 position = Vector2(800, 24)
@@ -129,4 +143,5 @@ position = Vector2(552, 104)
 [node name="ExplosionEffectRoot" parent="." instance=ExtResource("16_00s37")]
 position = Vector2(160, 32)
 
+[editable path="Canvas"]
 [editable path="Cannon2"]

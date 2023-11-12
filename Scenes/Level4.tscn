@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wxb7ygjfrbk5"]
+[gd_scene load_steps=19 format=3 uid="uid://wxb7ygjfrbk5"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_hqngp"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_i8mip"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bh12rm5m0tjph" path="res://Prefabs/ItemHealth.tscn" id="10_tew8g"]
 [ext_resource type="PackedScene" uid="uid://caqtndblw1vmg" path="res://Prefabs/FinishFlag.tscn" id="12_sro2q"]
 [ext_resource type="PackedScene" uid="uid://h2q5gdqvhtjm" path="res://Prefabs/Enemies/Monster.tscn" id="14_ci0pa"]
+[ext_resource type="PackedScene" uid="uid://c2b7aq6575qpi" path="res://Prefabs/Checkpoint.tscn" id="17_1pem0"]
 
 [node name="Level4" type="Node2D"]
 
@@ -275,7 +276,7 @@ position = Vector2(2664, 136)
 direction = Vector2(1, 0)
 
 [node name="Monster" parent="Group - Enemies" instance=ExtResource("14_ci0pa")]
-position = Vector2(800, 136)
+position = Vector2(832, 136)
 
 [node name="Monster2" parent="Group - Enemies" instance=ExtResource("14_ci0pa")]
 position = Vector2(1504, 72)
@@ -285,6 +286,8 @@ position = Vector2(2056, 88)
 
 [node name="Monster4" parent="Group - Enemies" instance=ExtResource("14_ci0pa")]
 position = Vector2(2864, 88)
+
+[node name="Checkpoint" parent="." instance=ExtResource("17_1pem0")]
 
 [node name="FinishFlag" parent="." instance=ExtResource("12_sro2q")]
 

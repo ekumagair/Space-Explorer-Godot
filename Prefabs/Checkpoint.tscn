@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2b7aq6575qpi"]
+
+[ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="1_n2bmt"]
+[ext_resource type="Texture2D" uid="uid://ca3pts8vurgym" path="res://Sprites/PlayerFire.png" id="2_o6phl"]
+
+[node name="Checkpoint" type="Node2D"]
+position = Vector2(1920, 128)
+script = ExtResource("1_n2bmt")
+
+[node name="EditorReference" type="Sprite2D" parent="."]
+modulate = Color(0, 0.772549, 0.282353, 1)
+texture = ExtResource("2_o6phl")

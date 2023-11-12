@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxterhixsvum6"]
+[gd_scene load_steps=11 format=3 uid="uid://dxterhixsvum6"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_vlgdi"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_ox4m3"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://0iqv0m1pg728" path="res://Prefabs/WeaponUpgrade.tscn" id="7_4y77u"]
 [ext_resource type="AudioStream" uid="uid://dte5fc2pnqf2x" path="res://Audio/Music/MusicBoss.wav" id="7_conq5"]
 [ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="7_om6pj"]
+[ext_resource type="PackedScene" uid="uid://ccmovifvlloxg" path="res://Prefabs/Enemies/Jellyfish.tscn" id="10_sbpoi"]
 
 [node name="Level6" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_vlgdi")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 65536, 0, 655361, 65536, 0, 655362, 65536, 0, 655363, 65536, 0, 655364, 65536, 0, 655365, 65536, 0, 655366, 65536, 0, 393219, 65536, 0, 393220, 65536, 0, 655367, 65536, 0, 65535, 131072, 3, 131071, 131072, 3, 196607, 131072, 3, 262143, 131072, 3, 327679, 131072, 3, 393215, 131072, 3, 458751, 131072, 3, 524287, 131072, 3, 589823, 131072, 3, 655359, 131072, 3, 720895, 131072, 3, 786431, 131072, 3)
+layer_0/tile_data = PackedInt32Array(655360, 65536, 0, 655361, 65536, 0, 655362, 65536, 0, 655363, 65536, 0, 655364, 65536, 0, 655365, 65536, 0, 655366, 65536, 0, 393219, 65536, 0, 393220, 65536, 0, 655367, 65536, 0, 65535, 131072, 3, 131071, 131072, 3, 196607, 131072, 3, 262143, 131072, 3, 327679, 131072, 3, 393215, 131072, 3, 458751, 131072, 3, 524287, 131072, 3, 589823, 131072, 3, 655359, 131072, 3, 720895, 131072, 3, 786431, 131072, 3, -196609, 131072, 3, -131073, 131072, 3, -65537, 131072, 3, -1, 131072, 3)
 
 [node name="Player" parent="." instance=ExtResource("2_ox4m3")]
 position = Vector2(56, 144)
@@ -23,6 +24,7 @@ position = Vector2(56, 144)
 [node name="CameraTarget" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("3_frcun")]
 remote_path = NodePath("../Camera2D")
 follow = NodePath("../Player")
+blockScrollAll = true
 
 [node name="Camera2D" parent="." instance=ExtResource("4_5xuai")]
 
@@ -40,3 +42,6 @@ stream = ExtResource("7_conq5")
 position = Vector2(56, 88)
 
 [node name="Group - Enemies" type="Node2D" parent="."]
+
+[node name="Jellyfish" parent="Group - Enemies" instance=ExtResource("10_sbpoi")]
+position = Vector2(224, 96)

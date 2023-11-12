@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xxgg65u6crkj"]
+
+[ext_resource type="Script" path="res://Scripts/CheatCode.gd" id="1_ud8ea"]
+
+[node name="CheatCode" type="Node"]
+script = ExtResource("1_ud8ea")

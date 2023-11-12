@@ -21,6 +21,7 @@ var jumpTime : float = 0.0
 var horizontalVector : int = 1
 var fireWait : float = 0.0
 var fireAnimationTimer : float = 0.0
+var freeze : bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -31,9 +32,22 @@ func _ready():
 	global.playerHealth = healthScript
 	global.finishedLevel = false
 	jumpTime = 0.0
+	freeze = false
+	
+	match global.difficulty:
+		0:
+			# Normal difficulty.
+			global.enemySpeedMultiplier = 1.0
+			
+		1:
+			# Hard difficulty.
+			global.enemySpeedMultiplier = 2.0
+			
+	if global.hasCheckpoint == true:
+		global_position = global.checkpointPos
 	
 func _process(delta):
-	if Input.is_action_just_pressed("Fire") and fireWait <= 0 and global.finishedLevel == false:
+	if Input.is_action_just_pressed("Fire") and fireWait <= 0 and global.finishedLevel == false and freeze == false:
 		shoot()
 		
 	if fireWait > 0:
@@ -47,13 +61,13 @@ func _physics_process(delta):
 			animatedSprite.play("jump")
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor() and global.finishedLevel == false:
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and global.finishedLevel == false and freeze == false:
 		jumpStart()
 		
 	jumpContinue(delta)
 
 	# Get the input direction and handle the movement/deceleration.
-	if global.finishedLevel == false:
+	if global.finishedLevel == false and freeze == false:
 		direction.x = Input.get_axis("WalkLeft", "WalkRight")
 	else:
 		direction.x = 0
@@ -62,10 +76,11 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-
-	move_and_slide()
-	update_animation(delta)
-	update_facing_direction()
+	
+	if freeze == false:
+		move_and_slide()
+		update_animation(delta)
+		update_facing_direction()
 
 func update_animation(delta):
 	if fireAnimationTimer <= 0:

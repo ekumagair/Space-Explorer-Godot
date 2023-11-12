@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://ccmovifvlloxg"]
+
+[ext_resource type="Script" path="res://Scripts/BossNPC.gd" id="1_nt5lc"]
+[ext_resource type="Texture2D" uid="uid://ch0s6clj1k6y0" path="res://Sprites/JellyfishFadeInA.png" id="2_j3weq"]
+[ext_resource type="Texture2D" uid="uid://ch665k7sbnx3e" path="res://Sprites/JellyfishDark.png" id="2_wgxe7"]
+[ext_resource type="Texture2D" uid="uid://x1rud6xxyyut" path="res://Sprites/JellyfishFadeInB.png" id="3_sqytq"]
+[ext_resource type="PackedScene" uid="uid://ctgdehyhn78h6" path="res://Prefabs/Components/HealthComponent.tscn" id="4_0r6oy"]
+[ext_resource type="Texture2D" uid="uid://6i4r8quh5kx5" path="res://Sprites/JellyfishFadeInC.png" id="4_ifrog"]
+[ext_resource type="Texture2D" uid="uid://pu60xuylkact" path="res://Sprites/JellyfishA.png" id="5_ephw0"]
+[ext_resource type="AudioStream" uid="uid://4n2bjktvmc4s" path="res://Audio/EnemyHurt.wav" id="5_rlo2d"]
+[ext_resource type="Texture2D" uid="uid://bc7hbogty1swr" path="res://Sprites/JellyfishB.png" id="6_bv4t0"]
+[ext_resource type="PackedScene" uid="uid://dfb8mm637x7bp" path="res://Prefabs/Components/ShooterComponent.tscn" id="7_2vefo"]
+[ext_resource type="PackedScene" uid="uid://bhbutxbjgdcm4" path="res://Prefabs/ExplosionEffectRoot.tscn" id="8_k27p0"]
+[ext_resource type="AudioStream" uid="uid://0gmfmxp4irwb" path="res://Audio/BossDeath.wav" id="10_2gfa6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_loenh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wgxe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j3weq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sqytq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ifrog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ephw0")
+}],
+"loop": false,
+"name": &"fadein",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ephw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bv4t0")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni3ls"]
+size = Vector2(64, 64)
+
+[node name="Jellyfish" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 36
+script = ExtResource("1_nt5lc")
+startDelay = 1.5
+postStartAnimation = "fly"
+flightType = 2
+speed = 60.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_loenh")
+animation = &"fly"
+autoplay = "fadein"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ni3ls")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_0r6oy")]
+health = 20
+afterHitBlinkTime = 4
+pointsOnDeath = 25000
+createOnDeath = Array[PackedScene]([ExtResource("8_k27p0")])
+
+[node name="SoundHurt" parent="HealthComponent" index="0"]
+stream = ExtResource("5_rlo2d")
+
+[node name="SoundDeath" parent="HealthComponent" index="1"]
+stream = ExtResource("10_2gfa6")
+
+[node name="ShooterComponent" parent="." instance=ExtResource("7_2vefo")]
+shotDelay = 1.0
+spawnOffset = Vector2(0, -1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-40, -40, 80, 80)
+
+[editable path="HealthComponent"]

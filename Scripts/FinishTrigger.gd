@@ -13,6 +13,10 @@ func _on_body_entered(body):
 func on_finish_level():
 	global.finishedLevel = true
 	$AnimatedSprite2D.play("active")
+	$AudioStreamPlayer.play()
+	
+	if global.musicReference != null:
+		global.musicReference.stop_sound()
 	
 	await get_tree().create_timer(3).timeout
 	

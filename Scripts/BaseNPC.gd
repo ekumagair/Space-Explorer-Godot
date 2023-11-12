@@ -10,8 +10,17 @@ class_name BaseNPC
 
 @export var appearOnDifficulty : Array[bool] = [true, true]
 
+@onready var visibilityNotifier = $VisibleOnScreenNotifier2D
+@onready var animatedSprite = $AnimatedSprite2D
+
 var baseScale = Vector2(1, 1)
 var active : bool = false
+var allowMovement : bool = true
+var shooterComponent
+
+func check_shooter():
+	if has_node("ShooterComponent"):
+		shooterComponent = $ShooterComponent
 
 func check_difficulty():
 	if appearOnDifficulty[global.difficulty] == false:
@@ -19,7 +28,7 @@ func check_difficulty():
 
 func base_npc_process():
 	if waitUntilOnScreen == true:
-		if $VisibleOnScreenNotifier2D.is_on_screen():
+		if visibilityNotifier.is_on_screen():
 			active = true
 	else:
 		active = true

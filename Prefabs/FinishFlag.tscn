@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://caqtndblw1vmg"]
+[gd_scene load_steps=7 format=3 uid="uid://caqtndblw1vmg"]
 
 [ext_resource type="Script" path="res://Scripts/FinishTrigger.gd" id="1_6gq3e"]
 [ext_resource type="Texture2D" uid="uid://bj05x1nfm1uas" path="res://Sprites/Flag1B.png" id="2_p7nd8"]
 [ext_resource type="Texture2D" uid="uid://dofcgcnj6dbwu" path="res://Sprites/Flag1A.png" id="3_lqgkt"]
+[ext_resource type="AudioStream" uid="uid://bjlvh0bh2cjja" path="res://Audio/WinStage.wav" id="4_qwmei"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yt44g"]
 animations = [{
@@ -39,5 +40,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_qciae")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qwmei")
+volume_db = -6.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -17,8 +17,12 @@ func _on_body_entered(body):
 		queue_free()
 		global.score += giveScore
 		
+		if giveScore > 600:
+			global.create_score_text(self, str(giveScore))
+		
 		if giveHealth > 0 and body.get_node("HealthComponent").health >= 3:
 			global.lives += 1
+			global.create_extra_life_text(self)
 			
 		body.get_node("HealthComponent").change_health(giveHealth)
 		

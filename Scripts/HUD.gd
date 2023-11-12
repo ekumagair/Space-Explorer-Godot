@@ -6,6 +6,7 @@ extends CanvasLayer
 
 func _on_ready():
 	set_hud_text()
+	global.hudControlReference = $Control
 	self.visible = true
 
 func _process(delta):

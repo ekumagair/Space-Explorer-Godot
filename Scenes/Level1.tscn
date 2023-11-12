@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0q6t5ycf824m"]
+[gd_scene load_steps=19 format=3 uid="uid://0q6t5ycf824m"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_cbc3i"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_du10q"]
@@ -13,6 +13,24 @@
 [ext_resource type="PackedScene" uid="uid://bh12rm5m0tjph" path="res://Prefabs/ItemHealth.tscn" id="9_ms82d"]
 [ext_resource type="PackedScene" uid="uid://02s10kmad6rg" path="res://Prefabs/Enemies/SlimeFast.tscn" id="11_6rnsv"]
 [ext_resource type="PackedScene" uid="uid://caqtndblw1vmg" path="res://Prefabs/FinishFlag.tscn" id="12_pithg"]
+[ext_resource type="PackedScene" uid="uid://c2b7aq6575qpi" path="res://Prefabs/Checkpoint.tscn" id="13_nhakx"]
+[ext_resource type="PackedScene" uid="uid://xxgg65u6crkj" path="res://Prefabs/CheatCode.tscn" id="15_vobtj"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_pc24x"]
+device = -1
+pressed = true
+keycode = 4194322
+
+[sub_resource type="InputEventKey" id="InputEventKey_yigku"]
+device = -1
+pressed = true
+keycode = 4194320
+
+[sub_resource type="InputEventKey" id="InputEventKey_clcfh"]
+device = -1
+pressed = true
+keycode = 90
+unicode = 122
 
 [node name="Level1" type="Node2D"]
 
@@ -242,4 +260,10 @@ position = Vector2(2344, 152)
 [node name="SlimeFast4" parent="Group - Enemies" instance=ExtResource("11_6rnsv")]
 position = Vector2(2456, 152)
 
+[node name="Checkpoint" parent="." instance=ExtResource("13_nhakx")]
+
 [node name="FinishFlag" parent="." instance=ExtResource("12_pithg")]
+
+[node name="CheatCodeUpgrade" parent="." instance=ExtResource("15_vobtj")]
+cheatType = 1
+code = Array[InputEventKey]([SubResource("InputEventKey_pc24x"), SubResource("InputEventKey_pc24x"), SubResource("InputEventKey_yigku"), SubResource("InputEventKey_yigku"), SubResource("InputEventKey_pc24x"), SubResource("InputEventKey_pc24x"), SubResource("InputEventKey_clcfh"), SubResource("InputEventKey_clcfh")])

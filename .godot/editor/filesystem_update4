@@ -37,3 +37,8 @@ res://Prefabs/Laser.tscn
 res://Prefabs/Enemies/SlimeFast.tscn
 res://Scenes/Level6.tscn
 res://Prefabs/Music.tscn
+res://Prefabs/Enemies/Jellyfish.tscn
+res://Scenes/Victory.tscn
+res://Prefabs/CheatCode.tscn
+res://Prefabs/WorldScoreText.tscn
+res://Scripts/CheatCode.gd

@@ -12,6 +12,7 @@ extends Node
 @onready var soundFire = $SoundFire
 
 var active : bool = false
+var allowShot : bool = true
 var startedLoop : bool = false
 var rng = RandomNumberGenerator.new()
 var visibilityNotifier = null
@@ -39,7 +40,7 @@ func _process(delta):
 
 func shoot_loop():
 	# Create the projectile.
-	if visibilityNotifier.is_on_screen() or onlyFireOnScreen == false:
+	if (visibilityNotifier.is_on_screen() or onlyFireOnScreen == false) and allowShot == true:
 		var projectile = shotPath.instantiate()
 		
 		if direction == Vector2.ZERO:

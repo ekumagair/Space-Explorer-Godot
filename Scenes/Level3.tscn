@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbmmnp7r5skn2"]
+[gd_scene load_steps=19 format=3 uid="uid://cbmmnp7r5skn2"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_o1fhh"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_fqc3e"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://0iqv0m1pg728" path="res://Prefabs/WeaponUpgrade.tscn" id="11_wj8tj"]
 [ext_resource type="PackedScene" uid="uid://ndippmcrrah6" path="res://Prefabs/Enemies/Slime.tscn" id="13_qeykn"]
 [ext_resource type="PackedScene" uid="uid://02s10kmad6rg" path="res://Prefabs/Enemies/SlimeFast.tscn" id="14_r0bv5"]
+[ext_resource type="PackedScene" uid="uid://c2b7aq6575qpi" path="res://Prefabs/Checkpoint.tscn" id="17_bnbd3"]
 
 [node name="Level3" type="Node2D"]
 
@@ -303,6 +304,9 @@ position = Vector2(1592, 104)
 
 [node name="SlimeFast2" parent="Group - Enemies" instance=ExtResource("14_r0bv5")]
 position = Vector2(2584, 152)
+
+[node name="Checkpoint" parent="." instance=ExtResource("17_bnbd3")]
+position = Vector2(1968, 64)
 
 [node name="FinishFlag" parent="." instance=ExtResource("10_2pxqc")]
 

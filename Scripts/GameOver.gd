@@ -1,6 +1,7 @@
 extends Node
 
 func _ready():
+	global.save_high_score()
 	await get_tree().create_timer(5).timeout
 	end()
 	

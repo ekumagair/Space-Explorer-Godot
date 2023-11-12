@@ -75,6 +75,9 @@ func die():
 	
 	if fellInPit == false:
 		global.score += pointsOnDeath
+		
+		if pointsOnDeath != 0 and isPlayer == false:
+			global.create_score_text(self, str(pointsOnDeath))
 			
 	if fellInPit == false or alwaysPlayDeathSound == true:
 		soundDeath.reparent(get_tree().root, true)
@@ -89,10 +92,15 @@ func die():
 	if isPlayer == true:
 		reparent(get_tree().root, true)
 		player_death()
+		
+	if parent.has_method("on_death"):
+		parent.on_death()
 	
 	parent.queue_free()
 
 func player_death():
+	global.save_high_score()
+	
 	await get_tree().create_timer(3).timeout
 	
 	global.upgrade = 0

@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dip07ob4v3qm4"]
+
+[ext_resource type="Script" path="res://Scripts/Victory.gd" id="1_0tk0v"]
+[ext_resource type="FontFile" uid="uid://d1kywbr0fhlr4" path="res://Fonts/Pixel_NES.otf" id="2_pmf4e"]
+[ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="3_cerfs"]
+[ext_resource type="AudioStream" uid="uid://cjuuqag78fmd5" path="res://Audio/Music/MusicEnd.wav" id="4_xckta"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0tk0v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_pmf4e")
+theme_override_font_sizes/font_size = 48
+text = "CONGRATULATIONS!
+
+YOU OVERCAME ALL CHALLENGES AND HAVE
+DEFEATED THE GREAT SPACE MONSTER.
+
+PUSH ENTER TO RETURN TO THE
+MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnlockText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -184.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("2_pmf4e")
+theme_override_font_sizes/font_size = 48
+text = "HARD MODE UNLOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" parent="." instance=ExtResource("3_cerfs")]
+stream = ExtResource("4_xckta")

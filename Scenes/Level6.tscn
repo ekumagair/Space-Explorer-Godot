@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxterhixsvum6"]
+[gd_scene load_steps=12 format=3 uid="uid://dxterhixsvum6"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_vlgdi"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_ox4m3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://0iqv0m1pg728" path="res://Prefabs/WeaponUpgrade.tscn" id="7_4y77u"]
 [ext_resource type="AudioStream" uid="uid://dte5fc2pnqf2x" path="res://Audio/Music/MusicBoss.wav" id="7_conq5"]
 [ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="7_om6pj"]
+[ext_resource type="PackedScene" uid="uid://1aj20w8p5xbv" path="res://Prefabs/Pause.tscn" id="9_umu31"]
 [ext_resource type="PackedScene" uid="uid://ccmovifvlloxg" path="res://Prefabs/Enemies/Jellyfish.tscn" id="10_sbpoi"]
 
 [node name="Level6" type="Node2D"]
@@ -35,6 +36,8 @@ visible = false
 
 [node name="Music" parent="." instance=ExtResource("7_om6pj")]
 stream = ExtResource("7_conq5")
+
+[node name="Pause" parent="." instance=ExtResource("9_umu31")]
 
 [node name="Group - Items" type="Node2D" parent="."]
 

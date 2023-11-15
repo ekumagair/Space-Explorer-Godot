@@ -40,7 +40,7 @@ func _process(delta):
 
 func shoot_loop():
 	# Create the projectile.
-	if (visibilityNotifier.is_on_screen() or onlyFireOnScreen == false) and allowShot == true:
+	if (visibilityNotifier.is_on_screen() or onlyFireOnScreen == false) and allowShot == true and get_tree().paused == false:
 		var projectile = shotPath.instantiate()
 		
 		if direction == Vector2.ZERO:

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://1aj20w8p5xbv"]
+
+[ext_resource type="Script" path="res://Scripts/Pause.gd" id="1_p42o5"]
+[ext_resource type="AudioStream" uid="uid://dml3ax8b7k5ub" path="res://Audio/Pause.wav" id="2_fhsq5"]
+
+[node name="Pause" type="Node"]
+script = ExtResource("1_p42o5")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fhsq5")
+volume_db = -6.0

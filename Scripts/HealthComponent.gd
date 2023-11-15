@@ -100,6 +100,7 @@ func die():
 
 func player_death():
 	global.save_high_score()
+	global.playerDied = true
 	
 	await get_tree().create_timer(3).timeout
 	

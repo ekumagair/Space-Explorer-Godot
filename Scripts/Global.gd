@@ -10,6 +10,7 @@ var unlockedDifficulty : int = 0
 var enemySpeedMultiplier : float = 1.0
 var bottomY : int = 220
 var finishedLevel : bool = false
+var playerDied : bool = false
 var hasCheckpoint : bool = false
 var checkpointPos : Vector2
 var masterVolume : int = 80
@@ -35,10 +36,14 @@ func delete_created_objects():
 				get_tree().root.get_children()[i].queue_free()
 
 func restart_scene():
+	playerDied = false
+	get_tree().paused = false
 	delete_created_objects()
 	get_tree().reload_current_scene()
 
 func go_to_level(number):
+	playerDied = false
+	finishedLevel = false
 	level = number
 	save_high_score()
 	delete_created_objects()
@@ -63,6 +68,7 @@ func go_to_main_menu():
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func win_game(delay):
+	get_tree().paused = false
 	save_high_score()
 	
 	await get_tree().create_timer(5 if delay else 0).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://waocfjo4k1tw"]
+[gd_scene load_steps=20 format=3 uid="uid://waocfjo4k1tw"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_o6f7e"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_bykr3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chq10t7eujk2b" path="res://Prefabs/CrystalYellow.tscn" id="7_l8nk7"]
 [ext_resource type="PackedScene" uid="uid://d1idgvaxfs6kh" path="res://Prefabs/CrystalOrange.tscn" id="8_7j64d"]
 [ext_resource type="PackedScene" uid="uid://ndippmcrrah6" path="res://Prefabs/Enemies/Slime.tscn" id="8_yg3vn"]
+[ext_resource type="PackedScene" uid="uid://1aj20w8p5xbv" path="res://Prefabs/Pause.tscn" id="9_u4pij"]
 [ext_resource type="PackedScene" uid="uid://0iqv0m1pg728" path="res://Prefabs/WeaponUpgrade.tscn" id="9_uokek"]
 [ext_resource type="PackedScene" uid="uid://h2q5gdqvhtjm" path="res://Prefabs/Enemies/Monster.tscn" id="10_7npa4"]
 [ext_resource type="PackedScene" uid="uid://dhkmbd6on1fsa" path="res://Prefabs/CrystalRed.tscn" id="10_hvpgy"]
@@ -42,6 +43,8 @@ visible = false
 
 [node name="Music" parent="." instance=ExtResource("7_2uly8")]
 stream = ExtResource("7_54mod")
+
+[node name="Pause" parent="." instance=ExtResource("9_u4pij")]
 
 [node name="Group - Items" type="Node2D" parent="."]
 
@@ -277,6 +280,10 @@ position = Vector2(2952, 136)
 
 [node name="Slime11" parent="Group - Enemies" instance=ExtResource("8_yg3vn")]
 position = Vector2(2744, 40)
+
+[node name="Slime12" parent="Group - Enemies" instance=ExtResource("8_yg3vn")]
+position = Vector2(2040, 40)
+appearOnDifficulty = Array[bool]([false, true])
 
 [node name="Monster" parent="Group - Enemies" instance=ExtResource("10_7npa4")]
 position = Vector2(400, 72)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tc65hxlvywy7"]
+[gd_scene load_steps=15 format=3 uid="uid://tc65hxlvywy7"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_178g5"]
 [ext_resource type="Texture2D" uid="uid://bmq2yjmffh7ji" path="res://Sprites/SpaceExplorerLogo.png" id="2_2c4qv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/OptionButton.gd" id="4_pcmtk"]
 [ext_resource type="FontFile" uid="uid://d1kywbr0fhlr4" path="res://Fonts/Pixel_NES.otf" id="4_pjal1"]
 [ext_resource type="PackedScene" uid="uid://xxgg65u6crkj" path="res://Prefabs/CheatCode.tscn" id="7_gvxv8"]
+[ext_resource type="AudioStream" uid="uid://c872qp5jhqooc" path="res://Audio/EnemyDefeat.wav" id="8_nnkmx"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_d7xlq"]
 pressed = true
@@ -44,8 +45,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_178g5")
 cursorRect = NodePath("ArrowRect")
-contentPages = [NodePath("MainSelection"), NodePath("Options")]
-defaultButton = [NodePath("MainSelection/ButtonPlay"), NodePath("Options/ButtonBack")]
+contentPages = [NodePath("MainSelection"), NodePath("Options"), NodePath("Controls")]
+defaultButton = [NodePath("MainSelection/ButtonPlay"), NodePath("Options/ButtonBack"), NodePath("Controls/ButtonBack")]
 optionVolume = NodePath("Options/ButtonVolume")
 optionDifficulty = NodePath("Options/ButtonDifficulty")
 
@@ -64,9 +65,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -194.5
-offset_top = 190.0
+offset_top = 170.0
 offset_right = 194.5
-offset_bottom = 348.0
+offset_bottom = 328.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(194.5, 0)
@@ -75,9 +76,9 @@ texture = ExtResource("2_2c4qv")
 [node name="ArrowRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 736.0
-offset_top = 648.0
+offset_top = 584.0
 offset_right = 776.0
-offset_bottom = 688.0
+offset_bottom = 624.0
 pivot_offset = Vector2(0, 20)
 texture = ExtResource("4_l25v5")
 
@@ -91,9 +92,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = 100.0
+offset_top = 36.0
 offset_right = 896.0
-offset_bottom = 356.0
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -103,6 +104,10 @@ layout_mode = 2
 [node name="ButtonOptions" parent="MainSelection" instance=ExtResource("2_pg8rb")]
 layout_mode = 2
 text = "OPTIONS"
+
+[node name="ButtonControls" parent="MainSelection" instance=ExtResource("2_pg8rb")]
+layout_mode = 2
+text = "CONTROLS"
 
 [node name="ButtonQuit" parent="MainSelection" instance=ExtResource("2_pg8rb")]
 layout_mode = 2
@@ -117,9 +122,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = 100.0
+offset_top = 36.0
 offset_right = 896.0
-offset_bottom = 356.0
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
@@ -192,6 +197,57 @@ theme_override_font_sizes/font_size = 48
 text = "NORMAL"
 vertical_alignment = 1
 
+[node name="Controls" type="VBoxContainer" parent="."]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 36.0
+offset_right = 896.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="ButtonBack" parent="Controls" instance=ExtResource("2_pg8rb")]
+layout_mode = 2
+text = "BACK"
+
+[node name="ControlLine1" type="Label" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.705882, 0.705882, 0.705882, 1)
+theme_override_fonts/font = ExtResource("4_pjal1")
+theme_override_font_sizes/font_size = 48
+text = "JUMP = X / SHOOT = Z"
+vertical_alignment = 1
+
+[node name="ControlLine2" type="Label" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.705882, 0.705882, 0.705882, 1)
+theme_override_fonts/font = ExtResource("4_pjal1")
+theme_override_font_sizes/font_size = 48
+text = "MOVE = ARROW KEYS"
+vertical_alignment = 1
+
+[node name="ControlLine3" type="Label" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.705882, 0.705882, 0.705882, 1)
+theme_override_fonts/font = ExtResource("4_pjal1")
+theme_override_font_sizes/font_size = 48
+text = "PAUSE = ENTER KEY"
+vertical_alignment = 1
+
 [node name="Credits" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -254,7 +310,13 @@ vertical_alignment = 1
 [node name="CheatCodeLives" parent="." instance=ExtResource("7_gvxv8")]
 code = Array[InputEventKey]([SubResource("InputEventKey_d7xlq"), SubResource("InputEventKey_d7xlq"), SubResource("InputEventKey_4qwyj"), SubResource("InputEventKey_4qwyj"), SubResource("InputEventKey_ebnv0"), SubResource("InputEventKey_3yvl2"), SubResource("InputEventKey_ebnv0"), SubResource("InputEventKey_3yvl2"), SubResource("InputEventKey_kib8e"), SubResource("InputEventKey_its2l")])
 
+[node name="DeleteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nnkmx")
+volume_db = -4.0
+
 [connection signal="pressed" from="MainSelection/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="MainSelection/ButtonOptions" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="MainSelection/ButtonControls" to="." method="_on_button_controls_pressed"]
 [connection signal="pressed" from="MainSelection/ButtonQuit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="Options/ButtonBack" to="." method="_on_button_options_back"]
+[connection signal="pressed" from="Controls/ButtonBack" to="." method="_on_button_options_back"]

@@ -31,6 +31,7 @@ func _ready():
 	global.playerReference = self
 	global.playerHealth = healthScript
 	global.finishedLevel = false
+	global.playerDied = false
 	jumpTime = 0.0
 	freeze = false
 	

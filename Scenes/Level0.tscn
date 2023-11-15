@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvqyf5t6ugra8"]
+[gd_scene load_steps=9 format=3 uid="uid://cvqyf5t6ugra8"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_2tkw0"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_xgw12"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7u643asymeti" path="res://Prefabs/Canvas.tscn" id="4_wlnhk"]
 [ext_resource type="PackedScene" uid="uid://33fio3syypdc" path="res://Prefabs/Background.tscn" id="5_k3o5c"]
 [ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="7_hb7ra"]
+[ext_resource type="PackedScene" uid="uid://1aj20w8p5xbv" path="res://Prefabs/Pause.tscn" id="8_3u3bm"]
 
 [node name="Level0" type="Node2D"]
 
@@ -29,6 +30,8 @@ visible = false
 [node name="Background" parent="." instance=ExtResource("5_k3o5c")]
 
 [node name="Music" parent="." instance=ExtResource("7_hb7ra")]
+
+[node name="Pause" parent="." instance=ExtResource("8_3u3bm")]
 
 [node name="Group - Items" type="Node2D" parent="."]
 

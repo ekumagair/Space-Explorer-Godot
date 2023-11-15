@@ -1,6 +1,7 @@
 res://Scenes/TestScene.tscn
 res://Scripts/Projectile.gd
 res://TileSets/TileSet.tres
+res://Scripts/Menu.gd
 res://Prefabs/Player.tscn
 res://Prefabs/Bullet.tscn
 res://Prefabs/CrystalYellow.tscn
@@ -41,4 +42,4 @@ res://Prefabs/Enemies/Jellyfish.tscn
 res://Scenes/Victory.tscn
 res://Prefabs/CheatCode.tscn
 res://Prefabs/WorldScoreText.tscn
-res://Scripts/CheatCode.gd
+res://Prefabs/Pause.tscn

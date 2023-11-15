@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ciqokxs6mt5ig"]
+[gd_scene load_steps=11 format=3 uid="uid://ciqokxs6mt5ig"]
 
 [ext_resource type="FontFile" uid="uid://d1kywbr0fhlr4" path="res://Fonts/Pixel_NES.otf" id="1_4iwnf"]
 [ext_resource type="AudioStream" uid="uid://cf86cda5aeplb" path="res://Audio/ButtonPress.wav" id="2_o18hg"]
 [ext_resource type="Script" path="res://Scripts/MenuButtonScript.gd" id="2_qiu4w"]
 [ext_resource type="AudioStream" uid="uid://bhbf68g5u2ce" path="res://Audio/ButtonSelect.wav" id="3_nvk50"]
+[ext_resource type="AudioStream" uid="uid://b26t5sp4gp0rm" path="res://Audio/Deny.wav" id="5_h3oor"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysb8q"]
 
@@ -42,6 +43,10 @@ stream = ExtResource("3_nvk50")
 
 [node name="SoundPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o18hg")
+volume_db = -4.0
+
+[node name="SoundDeny" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_h3oor")
 volume_db = -4.0
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

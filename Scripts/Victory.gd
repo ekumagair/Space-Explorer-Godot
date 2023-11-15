@@ -17,5 +17,4 @@ func _process(delta):
 		end()
 		
 func end():
-	print("difficulty = " + str(global.difficulty))
 	global.go_to_main_menu()

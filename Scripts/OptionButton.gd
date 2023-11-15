@@ -21,22 +21,33 @@ func _process(delta):
 	
 	if get_viewport().gui_get_focus_owner() != null:
 		if get_viewport().gui_get_focus_owner() == self:
-			if Input.is_action_just_pressed("ui_left") and value > valueMin:
+			if Input.is_action_just_pressed("ui_left"):
 				change_value(-valueIncrement)
 				
-			if Input.is_action_just_pressed("ui_right") and value < valueMax:
+			if Input.is_action_just_pressed("ui_right"):
 				change_value(valueIncrement)
 
 func change_value(increment : int):
-	value += increment
-	soundSelect.play()
-	set_value_text()
+	var canIncrement : bool = false
 	
+	if increment > 0 and value < valueMax:
+		canIncrement = true
+		
+	if increment < 0 and value > valueMin:
+		canIncrement = true
+		
+	if canIncrement == true:
+		value += increment
+		soundSelect.play()
+	else:
+		soundDeny.play()
+
 	if value < valueMin:
 		value = valueMin
 	if value > valueMax:
 		value = valueMax
 	
+	set_value_text()
 	savedata.save_game()
 
 func set_value_text():

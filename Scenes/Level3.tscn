@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbmmnp7r5skn2"]
+[gd_scene load_steps=20 format=3 uid="uid://cbmmnp7r5skn2"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_o1fhh"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_fqc3e"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chq10t7eujk2b" path="res://Prefabs/CrystalYellow.tscn" id="7_ehiyq"]
 [ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="7_peynv"]
 [ext_resource type="PackedScene" uid="uid://d1idgvaxfs6kh" path="res://Prefabs/CrystalOrange.tscn" id="8_llj5f"]
+[ext_resource type="PackedScene" uid="uid://1aj20w8p5xbv" path="res://Prefabs/Pause.tscn" id="9_ejain"]
 [ext_resource type="PackedScene" uid="uid://dhkmbd6on1fsa" path="res://Prefabs/CrystalRed.tscn" id="9_sveba"]
 [ext_resource type="PackedScene" uid="uid://caqtndblw1vmg" path="res://Prefabs/FinishFlag.tscn" id="10_2pxqc"]
 [ext_resource type="PackedScene" uid="uid://bh12rm5m0tjph" path="res://Prefabs/ItemHealth.tscn" id="10_kir7k"]
@@ -45,6 +46,8 @@ color = Color(0.164706, 0.101961, 0.192157, 1)
 
 [node name="Music" parent="." instance=ExtResource("7_peynv")]
 stream = ExtResource("7_6ow7m")
+
+[node name="Pause" parent="." instance=ExtResource("9_ejain")]
 
 [node name="Group - Items" type="Node2D" parent="."]
 

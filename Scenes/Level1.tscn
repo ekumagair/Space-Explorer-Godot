@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0q6t5ycf824m"]
+[gd_scene load_steps=20 format=3 uid="uid://0q6t5ycf824m"]
 
 [ext_resource type="TileSet" uid="uid://ds2wqla7fsiq6" path="res://TileSets/TileSet.tres" id="1_cbc3i"]
 [ext_resource type="PackedScene" uid="uid://fxexljwchmry" path="res://Prefabs/Player.tscn" id="2_du10q"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chq10t7eujk2b" path="res://Prefabs/CrystalYellow.tscn" id="6_s2ift"]
 [ext_resource type="PackedScene" uid="uid://dxm28lsttm81m" path="res://Prefabs/Music.tscn" id="7_gf526"]
 [ext_resource type="PackedScene" uid="uid://ndippmcrrah6" path="res://Prefabs/Enemies/Slime.tscn" id="8_5k6jv"]
+[ext_resource type="PackedScene" uid="uid://1aj20w8p5xbv" path="res://Prefabs/Pause.tscn" id="8_32vx7"]
 [ext_resource type="PackedScene" uid="uid://d1idgvaxfs6kh" path="res://Prefabs/CrystalOrange.tscn" id="8_bxqdg"]
 [ext_resource type="PackedScene" uid="uid://bh12rm5m0tjph" path="res://Prefabs/ItemHealth.tscn" id="9_ms82d"]
 [ext_resource type="PackedScene" uid="uid://02s10kmad6rg" path="res://Prefabs/Enemies/SlimeFast.tscn" id="11_6rnsv"]
@@ -54,6 +55,8 @@ visible = false
 [node name="Background" parent="." instance=ExtResource("5_v2ptr")]
 
 [node name="Music" parent="." instance=ExtResource("7_gf526")]
+
+[node name="Pause" parent="." instance=ExtResource("8_32vx7")]
 
 [node name="Group - Items" type="Node2D" parent="."]
 

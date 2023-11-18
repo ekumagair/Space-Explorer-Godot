@@ -8,6 +8,7 @@ extends Control
 
 enum MENU_BUTTON_ACTION { START_GAME, OPTIONS, CONTROLS, QUIT }
 
+var timeSinceReady : float = 0
 var deleteTimer : float = 0
 var selectAnim : bool = false
 
@@ -17,6 +18,7 @@ func _ready():
 	$HighScoreValue.text = str(global.highScore)
 	
 	optionDifficulty.value = global.difficulty
+	timeSinceReady = 0
 	selectAnim = false
 	global.playerDied = false
 	global.finishedLevel = false
@@ -29,6 +31,9 @@ func _ready():
 func _process(delta):
 	if get_viewport().gui_get_focus_owner() != null:
 		cursorRect.global_position.y = get_viewport().gui_get_focus_owner().global_position.y + 10
+		
+	if timeSinceReady < 2000000000.0:
+		timeSinceReady += delta
 	
 	# Volume
 	if optionVolume != null:
@@ -42,7 +47,7 @@ func _process(delta):
 		optionDifficulty.set_value_text()
 	
 	# Delete
-	if Input.is_action_pressed("ui_text_delete") and selectAnim == false:
+	if Input.is_action_pressed("ui_text_delete") and selectAnim == false and timeSinceReady > 2:
 		deleteTimer += delta
 		
 		if deleteTimer > 3:
@@ -62,7 +67,7 @@ func _process(delta):
 		deleteTimer = 0
 		
 	# Quit game
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and timeSinceReady > 1:
 		get_tree().quit()
 
 func _on_button_play_pressed():

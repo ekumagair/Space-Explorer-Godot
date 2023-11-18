@@ -1,7 +1,6 @@
 res://Scenes/TestScene.tscn
 res://Scripts/Projectile.gd
 res://TileSets/TileSet.tres
-res://Scripts/Menu.gd
 res://Prefabs/Player.tscn
 res://Prefabs/Bullet.tscn
 res://Prefabs/CrystalYellow.tscn

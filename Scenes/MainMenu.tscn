@@ -296,7 +296,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 128.0
 offset_top = -184.0
-offset_right = 640.0
+offset_right = 958.0
 offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -304,8 +304,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_pjal1")
 theme_override_font_sizes/font_size = 48
-text = "100000"
+text = "100000000000000000"
 vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="CheatCodeLives" parent="." instance=ExtResource("7_gvxv8")]
 code = Array[InputEventKey]([SubResource("InputEventKey_d7xlq"), SubResource("InputEventKey_d7xlq"), SubResource("InputEventKey_4qwyj"), SubResource("InputEventKey_4qwyj"), SubResource("InputEventKey_ebnv0"), SubResource("InputEventKey_3yvl2"), SubResource("InputEventKey_ebnv0"), SubResource("InputEventKey_3yvl2"), SubResource("InputEventKey_kib8e"), SubResource("InputEventKey_its2l")])

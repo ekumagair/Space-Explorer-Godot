@@ -142,10 +142,10 @@ position = Vector2(1784, 88)
 position = Vector2(1816, 88)
 
 [node name="CrystalYellow28" parent="Group - Items" instance=ExtResource("6_s2ift")]
-position = Vector2(2024, 88)
+position = Vector2(2024, 72)
 
 [node name="CrystalYellow29" parent="Group - Items" instance=ExtResource("6_s2ift")]
-position = Vector2(2040, 88)
+position = Vector2(2040, 72)
 
 [node name="CrystalYellow30" parent="Group - Items" instance=ExtResource("6_s2ift")]
 position = Vector2(2088, 136)

@@ -16,6 +16,7 @@ func _ready():
 	get_tree().paused = false
 	savedata.load_game()
 	$HighScoreValue.text = str(global.highScore)
+	$Version.text = "v" + global.gameVersion
 	
 	optionDifficulty.value = global.difficulty
 	timeSinceReady = 0

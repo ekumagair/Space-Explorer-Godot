@@ -22,6 +22,7 @@ var musicReference
 var hudControlReference
 
 const worldScorePath = preload('res://Prefabs/WorldScoreText.tscn')
+const gameVersion = "1.0"
 
 func _ready():
 	if difficulty < 0:

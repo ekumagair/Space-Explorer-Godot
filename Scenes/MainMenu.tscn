@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tc65hxlvywy7"]
+[gd_scene load_steps=16 format=3 uid="uid://tc65hxlvywy7"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_178g5"]
 [ext_resource type="Texture2D" uid="uid://bmq2yjmffh7ji" path="res://Sprites/SpaceExplorerLogo.png" id="2_2c4qv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://da348pkbxvyi6" path="res://Sprites/Arrow.png" id="4_l25v5"]
 [ext_resource type="Script" path="res://Scripts/OptionButton.gd" id="4_pcmtk"]
 [ext_resource type="FontFile" uid="uid://d1kywbr0fhlr4" path="res://Fonts/Pixel_NES.otf" id="4_pjal1"]
+[ext_resource type="FontFile" uid="uid://dw3koyd82uols" path="res://Fonts/PixelOperator.ttf" id="7_51n02"]
 [ext_resource type="PackedScene" uid="uid://xxgg65u6crkj" path="res://Prefabs/CheatCode.tscn" id="7_gvxv8"]
 [ext_resource type="AudioStream" uid="uid://c872qp5jhqooc" path="res://Audio/EnemyDefeat.wav" id="8_nnkmx"]
 
@@ -265,6 +266,22 @@ theme_override_fonts/font = ExtResource("4_pjal1")
 theme_override_font_sizes/font_size = 48
 text = "MADE BY EDUARDO KUMAGAI"
 horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 512.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_fonts/font = ExtResource("7_51n02")
+theme_override_font_sizes/font_size = 48
+text = "v1.0.0.0"
 vertical_alignment = 2
 
 [node name="HighScoreLabel" type="Label" parent="."]

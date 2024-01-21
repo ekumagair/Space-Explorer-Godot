@@ -21,7 +21,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"battery",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwk0b"]
@@ -38,7 +38,7 @@ giveWeapon = 1
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_u0odd")
 animation = &"battery"
-frame_progress = 0.113414
+frame_progress = 0.517458
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qwk0b")

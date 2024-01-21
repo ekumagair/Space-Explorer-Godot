@@ -53,6 +53,9 @@ func _process(delta):
 		
 	if fireWait > 0:
 		fireWait -= delta
+		
+	if global.lives > global.maxLives:
+		global.lives = global.maxLives
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -78,10 +81,11 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
+	update_animation(delta)
+	update_facing_direction()
+	
 	if freeze == false:
 		move_and_slide()
-		update_animation(delta)
-		update_facing_direction()
 
 func update_animation(delta):
 	if fireAnimationTimer <= 0:

@@ -19,7 +19,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh1rv"]
@@ -37,8 +37,8 @@ perforation = 2
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_pk5wf")
 autoplay = "default"
-frame = 1
-frame_progress = 0.507187
+frame = 2
+frame_progress = 0.332339
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kh1rv")

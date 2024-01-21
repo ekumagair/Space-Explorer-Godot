@@ -40,7 +40,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"orange",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -51,7 +51,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"red",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -62,7 +62,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"yellow",
-"speed": 4.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwk0b"]

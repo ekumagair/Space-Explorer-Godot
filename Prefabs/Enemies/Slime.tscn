@@ -55,6 +55,11 @@ position = Vector2(-10, -16)
 target_position = Vector2(0, 32)
 collision_mask = 8
 
+[node name="RayCastSide" type="RayCast2D" parent="RayCastRoot"]
+position = Vector2(-8, 0)
+target_position = Vector2(-8, 0)
+collision_mask = 2
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [editable path="HealthComponent"]

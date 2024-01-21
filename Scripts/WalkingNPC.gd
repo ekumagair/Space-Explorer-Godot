@@ -49,6 +49,9 @@ func detect_turn_around():
 	if not $RayCastRoot/RayCastFloor.is_colliding() and is_on_floor() and turnAroundOnLedges == true:
 		turn_around()
 		
+	if $RayCastRoot/RayCastSide.is_colliding() and is_on_floor():
+		turn_around()
+		
 	if is_on_wall():
 		turn_around()
 	

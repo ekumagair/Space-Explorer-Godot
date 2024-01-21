@@ -17,7 +17,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hp",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwk0b"]
@@ -33,6 +33,7 @@ giveHealth = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u0odd")
 animation = &"hp"
+frame_progress = 0.85485
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qwk0b")

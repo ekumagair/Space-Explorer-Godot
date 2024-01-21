@@ -23,6 +23,7 @@ var hudControlReference
 
 const worldScorePath = preload('res://Prefabs/WorldScoreText.tscn')
 const gameVersion = "1.0"
+const maxLives = 99
 
 func _ready():
 	if difficulty < 0:
@@ -33,7 +34,7 @@ func _ready():
 func delete_created_objects():
 	for i in get_tree().root.get_child_count():
 			var nodeName : String = get_tree().root.get_children()[i].name
-			if nodeName != "global" and nodeName != "savedata":
+			if string_is_autoload_node(nodeName) == false:
 				get_tree().root.get_children()[i].queue_free()
 
 func restart_scene():
@@ -103,3 +104,9 @@ func create_extra_life_text(origin : Node2D):
 	obj.position = origin.global_position - Vector2(0, 12)
 	obj.text = "1-UP"
 	obj.modulate = Color(0, 1, 0)
+
+func current_time():
+	return str(Time.get_date_dict_from_system().year) + "-" + str(Time.get_date_dict_from_system().month) + "-" + str(Time.get_date_dict_from_system().day) + " " + str(Time.get_time_dict_from_system().hour) + "-" + str(Time.get_time_dict_from_system().minute) + "-" + str(Time.get_time_dict_from_system().second)
+
+func string_is_autoload_node(text : String):
+	return text == "global" or text == "savedata" or text == "screenshot"

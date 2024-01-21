@@ -56,11 +56,17 @@ func after_hit_blink():
 		if health <= 0 or is_instance_valid(self) == false:
 			return
 		parent.hide()
+		
+		while get_tree().paused:
+			await get_tree().create_timer(0.01).timeout
 		await get_tree().create_timer(0.1).timeout
 		
 		if health <= 0 or is_instance_valid(self) == false:
 			return
 		parent.show()
+		
+		while get_tree().paused:
+			await get_tree().create_timer(0.01).timeout
 		await get_tree().create_timer(0.1).timeout
 	
 	parent.show()

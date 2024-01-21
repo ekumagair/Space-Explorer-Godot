@@ -26,6 +26,9 @@ func _ready():
 	
 	if optionVolume != null:
 		optionVolume.value = global.masterVolume
+		
+	if optionDifficulty != null:
+		optionDifficulty.set_value_text()
 	
 	go_to_page(0)
 
@@ -95,6 +98,7 @@ func cursor_animation(action : MENU_BUTTON_ACTION, flashCursor : bool):
 	get_viewport().gui_get_focus_owner().release_focus()
 	selectAnim = true
 	cursorRect.show()
+	savedata.save_game()
 	
 	if flashCursor == true:
 		for i in 6:

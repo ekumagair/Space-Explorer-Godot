@@ -7,4 +7,4 @@ animation = "orange"
 giveScore = 400
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-animation = &"orange"
+animation = &"red"

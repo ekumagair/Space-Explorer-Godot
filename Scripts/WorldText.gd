@@ -7,5 +7,5 @@ func _ready():
 	queue_free()
 
 func _process(delta):
-	if position.y > 32:
+	if position.y > 32 or text == "1-UP":
 		position.y -= speed * delta

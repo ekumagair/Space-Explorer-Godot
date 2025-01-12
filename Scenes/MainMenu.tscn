@@ -37,7 +37,7 @@ pressed = true
 keycode = 88
 unicode = 120
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("cursorRect", "contentPages", "defaultButton", "optionVolume", "optionDifficulty")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("cursorRect", "contentPages", "defaultButton", "optionVolume", "optionDifficulty", "quitGameButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +50,7 @@ contentPages = [NodePath("MainSelection"), NodePath("Options"), NodePath("Contro
 defaultButton = [NodePath("MainSelection/ButtonPlay"), NodePath("Options/ButtonBack"), NodePath("Controls/ButtonBack")]
 optionVolume = NodePath("Options/ButtonVolume")
 optionDifficulty = NodePath("Options/ButtonDifficulty")
+quitGameButton = NodePath("MainSelection/ButtonQuit")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

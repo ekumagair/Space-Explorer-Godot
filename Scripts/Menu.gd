@@ -5,6 +5,7 @@ extends Control
 @export var defaultButton : Array[Button]
 @export var optionVolume : GameOptionButton
 @export var optionDifficulty : GameOptionButton
+@export var quitGameButton : Button
 
 enum MENU_BUTTON_ACTION { START_GAME, OPTIONS, CONTROLS, QUIT }
 
@@ -26,9 +27,13 @@ func _ready():
 	
 	if optionVolume != null:
 		optionVolume.value = global.masterVolume
-		
+	
 	if optionDifficulty != null:
 		optionDifficulty.set_value_text()
+	
+	# Hide the quit button on Web export.
+	if OS.get_name() == "Web":
+		hide_quit_button()
 	
 	go_to_page(0)
 
@@ -71,8 +76,11 @@ func _process(delta):
 		deleteTimer = 0
 		
 	# Quit game
-	if Input.is_action_just_pressed("ui_cancel") and timeSinceReady > 1:
+	if Input.is_action_just_pressed("ui_cancel") and timeSinceReady > 1 and OS.get_name() != "Web":
 		get_tree().quit()
+
+func hide_quit_button():
+	quitGameButton.hide()
 
 func _on_button_play_pressed():
 	cursor_animation(MENU_BUTTON_ACTION.START_GAME, true)
